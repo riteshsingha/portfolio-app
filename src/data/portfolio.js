@@ -16,11 +16,11 @@ export const personalInfo = {
 };
 
 export const aboutContent = {
-  summary: `Adobe Certified Expert AEM Developer with 4+ years of experience building enterprise CMS solutions on AEM 6.5 and AEM as a Cloud Service (AEMaaCS). Recently contributed in content architecture for Citi's migration from TeamSite-Angular to a headless AEM and Next.js stack, covering Content Fragment Models, GraphQL persisted queries and Universal Editor authoring. Strong foundation in Java, OSGi, Apache Sling, Sling Models and JCR/Oak from delivering the FedEx Rewards loyalty platform across US, EU and APAC. Experienced in AI-assisted development with Cursor, owning design and review of the output.`,
+  summary: `Adobe Certified Expert AEM Developer with 4+ years of experience building enterprise CMS solutions on AEM 6.5 and AEM as a Cloud Service (AEMaaCS). Recently contributed in content architecture for Citi's migration from TeamSite-Angular to a headless AEM stack, covering Content Fragment Models, GraphQL persisted queries and Universal Editor authoring. Strong foundation in Java, OSGi, Apache Sling, Sling Models and JCR/Oak from delivering the FedEx Rewards loyalty platform across US, EU and APAC. Experienced in AI-assisted development with Cursor, owning design and review of the output.`,
   highlights: [
     "Adobe Certified Expert - AEM Sites Developer (2025)",
     "4+ years building enterprise CMS solutions",
-    "Headless AEM + Next.js architecture experience",
+    "Headless AEM architecture experience",
     "Zero rollback releases across US, EU & APAC platforms"
   ]
 };
@@ -35,10 +35,10 @@ export const experience = [
     description: "Leading headless content architecture and enterprise AEM development for global clients.",
     projects: [
       {
-        name: "Citi: TeamSite-Angular to AEMaaCS + Next.js Migration",
+        name: "Citi: TeamSite-Angular to AEMaaCS Headless Migration",
         achievements: [
-          "Designed the headless content architecture for the migration from TeamSite-Angular to AEMaaCS and Next.js: analyzed existing pages and components to define Content Fragment Models, fields and relationships, then presented the design to stakeholders and built it after sign-off",
-          "Built Content Fragments and GraphQL persisted queries with AI-assisted development (Cursor), handed them to Next.js developers for integration, then implemented Universal Editor on the Next.js codebase for in-context authoring",
+          "Designed the headless content architecture for the migration from TeamSite-Angular to AEMaaCS: analyzed existing pages and components to define Content Fragment Models, fields and relationships, then presented the design to stakeholders and built it after sign-off",
+          "Built Content Fragments and GraphQL persisted queries with AI-assisted development (Cursor), handed them to front-end developers for integration, then implemented Universal Editor for in-context authoring",
           "Owned and enhanced an AEM-hosted admin console tool that automates content migration, publishing and multi-layer cache invalidation between Dev and QA within a single AEM instance"
         ]
       },
@@ -53,7 +53,7 @@ export const experience = [
         ]
       }
     ],
-    technologies: ["AEMaaCS", "Next.js", "GraphQL", "Content Fragments", "Universal Editor", "Cursor AI"]
+    technologies: ["AEMaaCS", "GraphQL", "Content Fragments", "Universal Editor", "Cursor AI"]
   },
   {
     id: 2,
@@ -138,7 +138,6 @@ export const skills = {
     "Persisted Queries",
     "Content Fragments",
     "Content Fragment Models",
-    "Next.js (Integration)",
     "Oak/Lucene Indexing",
     "Query Builder",
     "JCR-SQL2"
