@@ -1,0 +1,148 @@
+{
+  "basics": {
+    "name": "Ritesh Singha",
+    "title": "AEM Developer 2",
+    "certificationHighlight": "Adobe Certified AEM Expert (2025)",
+    "experience": "4 Years of Experience",
+    "email": "hriteshsingha@gmail.com",
+    "phone": "+91-8794680692",
+    "linkedin": "https://www.linkedin.com/in/ritesh-singha-8b6b8421a/"
+  },
+  "professionalSummary": "Adobe Certified Expert (ACE) and results-driven AEM Developer with 4+ years of experience designing, building, and scaling enterprise CMS solutions across AEM 6.5 and AEM as a Cloud Service (AEMaaCS). Hands-on expertise spanning Java, OSGi, Apache Sling, Sling Models, Sling Servlets, HTL, JCR/Oak, GraphQL, and REST API integrations - with a strong foundation in headless architecture, component design, backend service development, and multi-region deployment. Demonstrated ability to independently own high-stakes technical challenges end-to-end: from leading legacy CMS-to-cloud migrations and building AI-assisted automation tooling, to architecting secure third-party integrations and diagnosing critical production vulnerabilities under tight deadlines. Consistent record of zero-defect releases and high deployment success rates across global EU, APAC, and US platforms.",
+  "experience": [
+    {
+      "company": "Epsilon",
+      "role": "AEM Developer",
+      "startDate": "Jun 2022",
+      "endDate": "Present",
+      "positions": [
+        {
+          "title": "Developer 2",
+          "startDate": "Apr 2024",
+          "endDate": "Present",
+          "highlights": [
+            "Driving a large-scale CMS modernization program for the Citi ThankYou Rewards platform, migrating static content from TeamSite CMS to AEM as a Cloud Service (AEMaaCS) by mapping legacy DCTs to Content Fragment Models and DCRs to Content Fragments; independently built an AI-assisted migration accelerator (Cursor AI) that analyzes existing repository patterns to auto-generate CFMs, CFs, and GraphQL persisted queries through a guided preview-and-approve workflow, cutting manual effort and accelerating delivery.",
+            "Designed scalable Content Fragment Models and GraphQL persisted queries powering headless content delivery for the Next.js front end across key rewards experiences - including Points Transfer, Points Summary, Order History, Cash PDP, Charity, FAQ, and Account Combine - collaborating closely with front-end, architecture, and business teams through CMS design reviews and API design sessions to define content structures and API contracts.",
+            "Implemented bilingual (English/Spanish) content delivery and a structured AEM tag taxonomy (tier, session state, active status, and language tags) to enable audience-based content targeting and consistent metadata across Content Fragments.",
+            "Shaped GraphQL responses to match UI contracts - aligning field order to page layout, normalizing rich-text/HTML output, and resolving encoding differences between GraphiQL and publish endpoints - and validated persisted queries in Postman before exposing publish endpoints to the front-end team.",
+            "Managed deployments through Adobe Cloud Manager CI/CD pipelines, troubleshooting FileVault filter.xml modes and package installation behavior to ensure CFM and persisted-query updates reflected correctly across Author and Publish environments.",
+            "Led the EU-AMEA website redesign initiative, delivering 10+ reusable, multi-variant AEM components across 15+ regional sites spanning US, EU, and APAC regions - achieving zero production defects and measurably improving page load performance and author experience.",
+            "Built a secure, service-oriented third-party payment integration on AEM using OAuth 2.0, implementing environment-specific OSGi configurations across Dev, QA, Stage, and Production environments with structured JSON response handling and full sandbox-to-live promotion support.",
+            "Sole developer credited with independently diagnosing and remediating a critical production data exposure vulnerability - executing the full fix cycle from root-cause analysis to deployment within 5 business days, safeguarding live customer data across multiple regional platforms.",
+            "Orchestrated 24+ biweekly post-production enhancement releases across EU and APAC regions, consistently achieving high deployment success rates with zero rollbacks through rigorous pre-release validation and post-production monitoring.",
+            "Designed and tuned Oak/Lucene index configurations to optimize full-text and property-based search queries across the JCR repository, reducing query execution time and improving AEM content delivery performance."
+          ]
+        },
+        {
+          "title": "Developer 1",
+          "startDate": "Jun 2022",
+          "endDate": "Apr 2024",
+          "highlights": [
+            "Worked as an AEM developer on the Loyalty Rewards platform, involved in designing and building 20+ production-grade components using HTL and Java, contributing to backend OSGi service logic, Sling Model implementations, and production deployments.",
+            "Stepped up during the absence of senior team members, supporting planning and execution of 3 major production releases with zero defects - demonstrating technical ownership and cross-functional coordination under pressure.",
+            "Developed a site-wide Simplified Header Footer (SHF) solution leveraging locale-based Sling Model injection, standardizing header/footer rendering across all regional sites and eliminating content inconsistency issues at scale."
+          ]
+        }
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Adobe Certified Expert",
+      "detail": "Adobe Experience Manager Sites Developer",
+      "year": 2025
+    },
+    {
+      "name": "MTA: Introduction to Programming Using Java",
+      "issuer": "Microsoft",
+      "year": 2019
+    }
+  ],
+  "awards": [
+    {
+      "title": "Epsilon DX Extra Miler Award",
+      "year": 2023,
+      "summary": "Awarded for consistently exceeding delivery expectations through technical ownership, proactive problem-solving, and high-quality production output."
+    },
+    {
+      "title": "Magnitude Team Impact Award",
+      "year": 2024,
+      "summary": "Recognized for exceptional cross-functional impact and technical leadership on a high-stakes enterprise project delivery."
+    }
+  ],
+  "technicalSkills": {
+    "cmsPlatform": [
+      "Adobe Experience Manager (AEM) 6.5",
+      "AEM as a Cloud Service (AEMaaCS)",
+      "AEM Sites",
+      "AEM Headless",
+      "TeamSite to AEMaaCS Content Migration"
+    ],
+    "languages": [
+      "Java",
+      "HTL (Sightly)",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "aemAndFrameworks": [
+      "Apache Sling",
+      "Sling Models",
+      "Sling Servlets",
+      "OSGi Services",
+      "JCR Repository",
+      "AEM Workflows",
+      "Dialog Creation",
+      "Content Management",
+      "Custom Component Development",
+      "Templates & Editable Templates",
+      "ClientLibs",
+      "Dispatcher",
+      "Replication",
+      "Caching Strategies",
+      "AEM Tagging & Taxonomy",
+      "Multi-locale Content (EN/ES)"
+    ],
+    "apisSearchAndHeadless": [
+      "REST APIs",
+      "GraphQL",
+      "Content Fragments & Content Fragment Models",
+      "GraphQL Persisted Queries",
+      "Headless CMS Architecture",
+      "JSON",
+      "GraphiQL",
+      "Postman",
+      "Lucene Indexing",
+      "Oak Index",
+      "Query Builder API",
+      "SQL2 Query"
+    ],
+    "buildAndDevOps": [
+      "Apache Maven",
+      "Git",
+      "Azure DevOps Services",
+      "Adobe Cloud Manager (CI/CD Pipelines)",
+      "FileVault Package Management (filter.xml)"
+    ],
+    "aiAssistedDevelopment": [
+      "Cursor AI (agentic code generation, migration automation)"
+    ],
+    "testingAndDebugging": [
+      "JUnit",
+      "Unit Testing",
+      "Debugging",
+      "Log Analysis",
+      "Post-production Validation"
+    ]
+  },
+  "education": [
+    {
+      "institution": "ICFAI University, Tripura",
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science & Engineering",
+      "startYear": 2016,
+      "endYear": 2020,
+      "cgpa": 7.83
+    }
+  ]
+}

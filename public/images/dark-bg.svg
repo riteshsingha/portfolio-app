@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="vortexGradDark" x1="-680" y1="580" x2="680" y2="-580" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2B3E8C" />
+      <stop offset="48%" stop-color="#562E7A" />
+      <stop offset="100%" stop-color="#A82055" />
+    </linearGradient>
+
+    <radialGradient id="fadeGradDark" cx="0" cy="0" r="680" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="42%" stop-color="#FFFFFF" />
+      <stop offset="72%" stop-color="#666666" />
+      <stop offset="92%" stop-color="#141414" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+
+    <mask id="fadeMaskDark" maskUnits="userSpaceOnUse" x="-700" y="-700" width="1400" height="1400">
+      <circle cx="0" cy="0" r="680" fill="url(#fadeGradDark)" />
+    </mask>
+
+    <polygon id="hexDark" points="680,0 340,588.9 -340,588.9 -680,0 -340,-588.9 340,-588.9" fill="none" stroke="url(#vortexGradDark)" stroke-width="2" stroke-dasharray="2.4 2.4" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+  </defs>
+
+  <rect width="1920" height="1080" fill="#000000" />
+
+  <g transform="translate(1460, 540)" mask="url(#fadeMaskDark)">
+    <use href="#hexDark" transform="rotate(0) scale(1.000)" />
+    <use href="#hexDark" transform="rotate(7) scale(0.922)" />
+    <use href="#hexDark" transform="rotate(14) scale(0.850)" />
+    <use href="#hexDark" transform="rotate(21) scale(0.784)" />
+    <use href="#hexDark" transform="rotate(28) scale(0.723)" />
+    <use href="#hexDark" transform="rotate(35) scale(0.666)" />
+    <use href="#hexDark" transform="rotate(42) scale(0.614)" />
+    <use href="#hexDark" transform="rotate(49) scale(0.566)" />
+    <use href="#hexDark" transform="rotate(56) scale(0.522)" />
+    <use href="#hexDark" transform="rotate(63) scale(0.481)" />
+    <use href="#hexDark" transform="rotate(70) scale(0.444)" />
+    <use href="#hexDark" transform="rotate(77) scale(0.409)" />
+    <use href="#hexDark" transform="rotate(84) scale(0.377)" />
+    <use href="#hexDark" transform="rotate(91) scale(0.348)" />
+    <use href="#hexDark" transform="rotate(98) scale(0.321)" />
+    <use href="#hexDark" transform="rotate(105) scale(0.296)" />
+    <use href="#hexDark" transform="rotate(112) scale(0.273)" />
+    <use href="#hexDark" transform="rotate(119) scale(0.251)" />
+    <use href="#hexDark" transform="rotate(126) scale(0.232)" />
+    <use href="#hexDark" transform="rotate(133) scale(0.214)" />
+    <use href="#hexDark" transform="rotate(140) scale(0.197)" />
+    <use href="#hexDark" transform="rotate(147) scale(0.182)" />
+    <use href="#hexDark" transform="rotate(154) scale(0.168)" />
+    <use href="#hexDark" transform="rotate(161) scale(0.155)" />
+    <use href="#hexDark" transform="rotate(168) scale(0.143)" />
+    <use href="#hexDark" transform="rotate(175) scale(0.131)" />
+    <use href="#hexDark" transform="rotate(182) scale(0.121)" />
+    <use href="#hexDark" transform="rotate(189) scale(0.112)" />
+    <use href="#hexDark" transform="rotate(196) scale(0.103)" />
+    <use href="#hexDark" transform="rotate(203) scale(0.095)" />
+    <use href="#hexDark" transform="rotate(210) scale(0.088)" />
+    <use href="#hexDark" transform="rotate(217) scale(0.081)" />
+    <use href="#hexDark" transform="rotate(224) scale(0.074)" />
+    <use href="#hexDark" transform="rotate(231) scale(0.069)" />
+    <use href="#hexDark" transform="rotate(238) scale(0.063)" />
+    <use href="#hexDark" transform="rotate(245) scale(0.058)" />
+  </g>
+</svg>

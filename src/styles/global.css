@@ -1,0 +1,186 @@
+@import './variables.css';
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* Fixed Background - stays in place while content scrolls */
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Scrollbar - Minimal */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Typography - Apple style */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+
+h1 { 
+  font-size: var(--text-5xl); 
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+h2 { 
+  font-size: var(--text-4xl); 
+  letter-spacing: -0.028em;
+}
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+p {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Focus Styles - Apple style ring */
+:focus-visible {
+  outline: 4px solid rgba(0, 113, 227, 0.4);
+  outline-offset: 1px;
+}
+
+/* Section Base */
+section {
+  padding: var(--space-4xl) var(--space-xl);
+}
+
+/* Container */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+@media (max-width: 1068px) {
+  .container {
+    max-width: 692px;
+  }
+}
+
+@media (max-width: 734px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--space-md);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  section {
+    padding: var(--space-3xl) var(--space-md);
+  }
+  
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+
+  /* Hide scrollbar on mobile for cleaner look */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  section {
+    padding: var(--space-2xl) var(--space-sm);
+  }
+
+  h1 { font-size: var(--text-3xl); }
+  h2 { font-size: var(--text-2xl); }
+
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+}

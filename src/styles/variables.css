@@ -1,0 +1,98 @@
+/* Minimalist Solid Color System - Apple Design Inspired */
+:root {
+  /* Light Mode */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f7;
+  --color-bg-tertiary: #e8e8ed;
+  
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #515154;
+  --color-text-muted: #86868b;
+  
+  /* Solid Accent - Single primary color */
+  --color-accent: #991F52;
+  --color-accent-hover: #b32561;
+  
+  /* Functional Colors */
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-shadow-hover: rgba(153, 31, 82, 0.15);
+  
+  /* Glass Effect - Apple translucent material */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-blur: 20px;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  
+  /* Typography - Apple SF Pro inspired sizing */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', monospace;
+  
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.3125rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-base: 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-slow: 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  
+  /* Z-index layers */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #1d1d1f;
+  --color-bg-tertiary: #2d2d2f;
+  
+  --color-text-primary: #f5f5f7;
+  --color-text-secondary: #a1a1a6;
+  --color-text-muted: #6e6e73;
+  
+  --color-accent: #A82055;
+  --color-accent-hover: #c22563;
+  
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-shadow-hover: rgba(168, 32, 85, 0.25);
+  
+  --glass-bg: rgba(29, 29, 31, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+    --transition-slow: 0ms;
+  }
+}
