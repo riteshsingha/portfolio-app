@@ -1,0 +1,1 @@
+export { BackgroundSpiral } from './BackgroundSpiral';
