@@ -12,6 +12,8 @@ export function Contact() {
     message: ''
   });
   const [focused, setFocused] = useState(null);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+  const [statusMessage, setStatusMessage] = useState('');
 
   const springConfig = prefersReducedMotion
     ? { duration: 0 }
@@ -43,10 +45,59 @@ export function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:${personalInfo.email}?subject=Portfolio Contact from ${formData.name}&body=${formData.message}`;
-    window.location.href = mailtoLink;
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus('error');
+      setStatusMessage('Please fill in all fields before sending.');
+      return;
+    }
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || personalInfo.web3formsAccessKey;
+
+    if (!accessKey) {
+      // Fallback to mailto if access key is not yet configured
+      const mailtoLink = `mailto:${personalInfo.email}?subject=Portfolio Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(formData.message)}%0D%0A%0D%0AFrom: ${encodeURIComponent(formData.name)} (${encodeURIComponent(formData.email)})`;
+      window.location.href = mailtoLink;
+      setStatus('error');
+      setStatusMessage('Web3Forms Access Key is not configured yet. Opening email client as fallback.');
+      return;
+    }
+
+    setStatus('sending');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          subject: `New Portfolio Message from ${formData.name.trim()}`,
+          from_name: formData.name.trim(),
+          replyto: formData.email.trim()
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success');
+        setStatusMessage(`Thank you, ${formData.name}! Your message has been sent successfully. I will get back to you soon.`);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+        setStatusMessage(result.message || 'Something went wrong while sending your message. Please try again.');
+      }
+    } catch (err) {
+      setStatus('error');
+      setStatusMessage('Network error. Please check your connection or email me directly at ' + personalInfo.email);
+    }
   };
 
   return (
@@ -194,6 +245,7 @@ export function Contact() {
                 onFocus={() => setFocused('name')}
                 onBlur={() => setFocused(null)}
                 placeholder="Your name"
+                disabled={status === 'sending'}
                 required
               />
             </motion.div>
@@ -213,6 +265,7 @@ export function Contact() {
                 onFocus={() => setFocused('email')}
                 onBlur={() => setFocused(null)}
                 placeholder="your@email.com"
+                disabled={status === 'sending'}
                 required
               />
             </motion.div>
@@ -231,22 +284,57 @@ export function Contact() {
                 onFocus={() => setFocused('message')}
                 onBlur={() => setFocused(null)}
                 placeholder="Your message..."
+                disabled={status === 'sending'}
                 required
               />
             </motion.div>
 
+            {statusMessage && (
+              <motion.div
+                className={`${styles.alert} ${status === 'success' ? styles.alertSuccess : styles.alertError}`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={springConfig}
+                role="alert"
+              >
+                {status === 'success' ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                )}
+                <span>{statusMessage}</span>
+              </motion.div>
+            )}
+
             <motion.button
               type="submit"
               className={styles.submitBtn}
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.97 }}
+              disabled={status === 'sending'}
+              whileHover={status !== 'sending' ? { scale: 1.03, y: -2 } : {}}
+              whileTap={status !== 'sending' ? { scale: 0.97 } : {}}
               transition={springConfig}
             >
-              Send Message
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22,2 15,22 11,13 2,9 22,2" />
-              </svg>
+              {status === 'sending' ? (
+                <>
+                  <span className={styles.spinner}></span>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22,2 15,22 11,13 2,9 22,2" />
+                  </svg>
+                </>
+              )}
             </motion.button>
           </motion.form>
         </motion.div>
