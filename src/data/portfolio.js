@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Ritesh Singha",
-  title: "AEM Developer 2",
+  title: "AEM Developer",
   certificationHighlight: "Adobe Certified Expert – AEM Sites Developer (2025)",
   certificationUrl: "https://certification.adobe.com/credential/verify/476166f2-0750-11f0-9883-42010a40002a",
   experience: "4+ Years of Experience",
