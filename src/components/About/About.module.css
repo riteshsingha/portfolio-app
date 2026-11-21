@@ -114,7 +114,9 @@
   background: var(--color-bg-primary);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
   transition: all var(--transition-base);
   box-shadow: 0 2px 8px var(--color-shadow);
 }

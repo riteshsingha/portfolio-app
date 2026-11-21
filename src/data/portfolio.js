@@ -2,6 +2,7 @@ export const personalInfo = {
   name: "Ritesh Singha",
   title: "AEM Developer 2",
   certificationHighlight: "Adobe Certified Expert – AEM Sites Developer (2025)",
+  certificationUrl: "https://certification.adobe.com/credential/verify/476166f2-0750-11f0-9883-42010a40002a",
   experience: "4+ Years of Experience",
   tagline: "Adobe Certified Expert AEM Developer building enterprise CMS solutions on AEM 6.5 and AEM as a Cloud Service",
   email: "hriteshsingha@gmail.com",
@@ -80,7 +81,8 @@ export const certifications = [
   {
     name: "Adobe Certified Expert",
     detail: "Adobe Experience Manager Sites Developer",
-    year: 2025
+    year: 2025,
+    url: "https://certification.adobe.com/credential/verify/476166f2-0750-11f0-9883-42010a40002a"
   },
   {
     name: "MTA: Introduction to Programming Using Java",

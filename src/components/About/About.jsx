@@ -86,26 +86,54 @@ export function About() {
           <motion.div className={styles.credentialSection} variants={fadeInUp}>
             <h3 className={styles.credentialTitle}>Certifications</h3>
             <div className={styles.credentialList}>
-              {certifications.map((cert, index) => (
-                <motion.div 
-                  key={index} 
-                  className={styles.credentialItem}
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  transition={springConfig}
-                >
-                  <div className={styles.credentialIcon}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="8" r="6" />
-                      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
-                    </svg>
-                  </div>
-                  <div className={styles.credentialContent}>
-                    <span className={styles.credentialName}>{cert.name}</span>
-                    <span className={styles.credentialDetail}>{cert.detail}</span>
-                    <span className={styles.credentialYear}>{cert.year}</span>
-                  </div>
-                </motion.div>
-              ))}
+              {certifications.map((cert, index) => {
+                const ItemComponent = cert.url ? motion.a : motion.div;
+                const linkProps = cert.url ? {
+                  href: cert.url,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  title: `Verify ${cert.name} Credential`
+                } : {};
+
+                return (
+                  <ItemComponent 
+                    key={index} 
+                    className={styles.credentialItem}
+                    whileHover={{ scale: 1.02, x: 4 }}
+                    transition={springConfig}
+                    {...linkProps}
+                  >
+                    <div className={styles.credentialIcon}>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="8" r="6" />
+                        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                      </svg>
+                    </div>
+                    <div className={styles.credentialContent}>
+                      <span className={styles.credentialName}>
+                        {cert.name}
+                        {cert.url && (
+                          <svg 
+                            style={{ marginLeft: '6px', verticalAlign: 'middle', opacity: 0.6 }} 
+                            width="12" 
+                            height="12" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2"
+                          >
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                          </svg>
+                        )}
+                      </span>
+                      <span className={styles.credentialDetail}>{cert.detail}</span>
+                      <span className={styles.credentialYear}>{cert.year}</span>
+                    </div>
+                  </ItemComponent>
+                );
+              })}
             </div>
           </motion.div>
 

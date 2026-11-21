@@ -63,7 +63,8 @@
   font-weight: 500;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-lg);
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
   transition: all var(--transition-base);
 }
 
@@ -71,6 +72,17 @@
   background: var(--color-accent);
   border-color: var(--color-accent);
   color: #ffffff;
+  box-shadow: 0 4px 16px var(--color-shadow-hover);
+}
+
+.badgeArrow {
+  opacity: 0.65;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.badge:hover .badgeArrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .badgeDot {

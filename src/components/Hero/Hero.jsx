@@ -54,15 +54,34 @@ export function Hero() {
             />
           </motion.div>
 
-          <motion.div 
+          <motion.a 
+            href={personalInfo.certificationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.badge} 
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.98 }}
             transition={springConfig}
+            title="Verify Adobe Certified Expert Credential"
           >
             <span className={styles.badgeDot} />
-            {personalInfo.certificationHighlight}
-          </motion.div>
+            <span>{personalInfo.certificationHighlight}</span>
+            <svg 
+              className={styles.badgeArrow} 
+              width="12" 
+              height="12" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </motion.a>
 
           <motion.h1 className={styles.title} variants={itemVariants}>
             {personalInfo.name}
