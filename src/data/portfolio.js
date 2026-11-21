@@ -7,7 +7,7 @@ export const personalInfo = {
   email: "hriteshsingha@gmail.com",
   phone: "+91-8794680692",
   location: "Bengaluru, India",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: `${import.meta.env.BASE_URL}resume.pdf`,
   web3formsAccessKey: "78539ec5-96bf-4e1a-92a4-99dfb81800fa",
   social: {
     linkedin: "https://www.linkedin.com/in/ritesh-singha-8b6b8421a/",

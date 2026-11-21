@@ -48,7 +48,7 @@ export function Hero() {
             transition={springConfig}
           >
             <img 
-              src="/images/dispaly_picture.png" 
+              src={`${import.meta.env.BASE_URL}images/dispaly_picture.png`} 
               alt={personalInfo.name}
               className={styles.photo}
             />
