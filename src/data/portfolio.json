@@ -18,7 +18,7 @@
     }
   },
   "aboutContent": {
-    "summary": "Adobe Certified Expert AEM Developer with 4+ years of experience building enterprise CMS solutions on AEM 6.5 and AEM as a Cloud Service (AEMaaCS). Recently contributed in content architecture for Citi's migration from TeamSite-Angular to a headless AEM stack, covering Content Fragment Models, GraphQL persisted queries and Universal Editor authoring. Strong foundation in Java, OSGi, Apache Sling, Sling Models and JCR/Oak from delivering the FedEx Rewards loyalty platform across US, EU and APAC. Experienced in AI-assisted development with Cursor, owning design and review of the output.",
+    "summary": "Adobe Certified Expert AEM Developer with 4+ years of experience building enterprise CMS solutions on AEM 6.5 and AEM as a Cloud Service (AEMaaCS). Recently contributed in content architecture for Citi's migration from TeamSite-Angular to a headless AEM stack, covering Content Fragment Models, GraphQL persisted queries and Universal Editor authoring and building a Full fledged AEM Console tool streamlining effortless content migration across environmnets, publishing and multi-layer cache invalidation. Strong foundation in Java, OSGi, Apache Sling, Sling Models and JCR/Oak from delivering the FedEx Rewards loyalty platform across US, EU and APAC. Experienced in AI-assisted development with Cursor, owning design and review of the output.",
     "highlights": [
       "Adobe Certified Expert - AEM Sites Developer (2025)",
       "4+ years building enterprise CMS solutions",
@@ -30,17 +30,17 @@
     {
       "id": 1,
       "company": "Epsilon",
-      "role": "AEM Developer 2",
+      "role": "Developer 2",
       "period": "Apr 2024 – Present",
       "location": "Bengaluru, India",
       "description": "Leading headless content architecture and enterprise AEM development for global clients.",
       "projects": [
         {
-          "name": "Citi: TeamSite-Angular to AEMaaCS Headless Migration",
+          "name": "Citi ThankYou Rewards: AEMaaCS Headless Migration",
           "achievements": [
             "Designed the headless content architecture for the migration from TeamSite-Angular to AEMaaCS: analyzed existing pages and components to define Content Fragment Models, fields and relationships, then presented the design to stakeholders and built it after sign-off",
             "Built Content Fragments and GraphQL persisted queries with AI-assisted development (Cursor), handed them to front-end developers for integration, then implemented Universal Editor for in-context authoring",
-            "Owned and enhanced an AEM-hosted admin console tool that automates content migration, publishing and multi-layer cache invalidation between Dev and QA within a single AEM instance"
+            "Owned and enhanced an AEM-hosted admin console tool that helps user to effortlessly migrate content across environments, publishing and multi-layer cache invalidation between Dev and QA within a single AEM instance"
           ]
         },
         {
@@ -126,10 +126,7 @@
       "Editable Templates",
       "Custom Components",
       "ClientLibs",
-      "Dispatcher",
-      "Replication",
-      "AEM Tagging",
-      "Multi-locale Content"
+      "Dispatcher"
     ],
     "apisAndHeadless": [
       "REST APIs",
@@ -153,7 +150,8 @@
       "IntelliJ IDEA",
       "VS Code",
       "CRXDE Lite",
-      "Postman"
+      "Postman",
+      "Jira"
     ]
   },
   "education": {
