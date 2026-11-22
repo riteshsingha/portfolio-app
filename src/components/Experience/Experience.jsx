@@ -10,6 +10,10 @@ export function Experience() {
     ? { duration: 0 }
     : { duration: 0.45, ease: [0.16, 1, 0.3, 1] };
 
+  const snappySpring = prefersReducedMotion
+    ? { duration: 0 }
+    : { type: 'spring', damping: 25, stiffness: 350, mass: 0.5 };
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -56,7 +60,7 @@ export function Experience() {
               className={styles.timelineItem}
               variants={fadeInUp}
               whileHover={{ x: 4 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               <div className={styles.timelineHeader}>
                 <div className={styles.roleInfo}>
@@ -84,7 +88,7 @@ export function Experience() {
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ ...springConfig, delay: index * 0.03 }}
+                        transition={{ ...easeConfig, delay: index * 0.03 }}
                       >
                         {achievement}
                       </motion.li>
@@ -100,7 +104,7 @@ export function Experience() {
                     className={styles.tech}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    transition={springConfig}
+                    transition={snappySpring}
                   >
                     {tech}
                   </motion.span>
