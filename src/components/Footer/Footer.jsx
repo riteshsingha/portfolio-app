@@ -8,7 +8,7 @@ export function Footer() {
   
   const springConfig = prefersReducedMotion
     ? { duration: 0 }
-    : { type: 'spring', damping: 25, stiffness: 120 };
+    : { type: 'spring', damping: 25, stiffness: 350, mass: 0.5 };
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);

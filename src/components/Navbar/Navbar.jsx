@@ -12,24 +12,32 @@ export function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const prefersReducedMotion = useReducedMotion();
 
-  // Apple-style critically damped spring
+  // Snappy critically damped spring for instant indicator response
   const springConfig = prefersReducedMotion 
     ? { duration: 0 } 
-    : { type: 'spring', damping: 25, stiffness: 120 };
+    : { type: 'spring', damping: 28, stiffness: 350, mass: 0.5 };
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-      
-      const sections = navLinks.map(link => document.getElementById(link.id));
-      const scrollPosition = window.scrollY + 100;
-      
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navLinks[i].id);
-          break;
-        }
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentY = window.scrollY;
+          setIsScrolled(currentY > 10);
+          
+          const sections = navLinks.map(link => document.getElementById(link.id));
+          const scrollPosition = currentY + 120;
+          
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
+            if (section && section.offsetTop <= scrollPosition) {
+              setActiveSection(navLinks[i].id);
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

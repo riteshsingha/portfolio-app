@@ -6,16 +6,20 @@ import styles from './About.module.css';
 export function About() {
   const prefersReducedMotion = useReducedMotion();
 
-  const springConfig = prefersReducedMotion
+  const easeConfig = prefersReducedMotion
     ? { duration: 0 }
-    : { type: 'spring', damping: 25, stiffness: 120 };
+    : { duration: 0.45, ease: [0.16, 1, 0.3, 1] };
+
+  const snappySpring = prefersReducedMotion
+    ? { duration: 0 }
+    : { type: 'spring', damping: 25, stiffness: 350, mass: 0.5 };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: springConfig
+      transition: easeConfig
     }
   };
 
@@ -24,7 +28,7 @@ export function About() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.08
+        staggerChildren: prefersReducedMotion ? 0 : 0.05
       }
     }
   };
@@ -36,7 +40,7 @@ export function About() {
           className={styles.header}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={fadeInUp}
         >
           <span className={styles.sectionLabel}>About</span>
@@ -47,7 +51,7 @@ export function About() {
           className={styles.content}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
           <motion.p className={styles.summary} variants={fadeInUp}>
@@ -61,7 +65,7 @@ export function About() {
                 className={styles.highlightItem}
                 variants={fadeInUp}
                 whileHover={{ x: 8 }}
-                transition={springConfig}
+                transition={snappySpring}
               >
                 <span className={styles.checkIcon}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -79,7 +83,7 @@ export function About() {
           className={styles.credentialsGrid}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
           {/* Certifications */}
@@ -100,7 +104,7 @@ export function About() {
                     key={index} 
                     className={styles.credentialItem}
                     whileHover={{ scale: 1.02, x: 4 }}
-                    transition={springConfig}
+                    transition={snappySpring}
                     {...linkProps}
                   >
                     <div className={styles.credentialIcon}>
@@ -146,7 +150,7 @@ export function About() {
                   key={index} 
                   className={styles.credentialItem}
                   whileHover={{ scale: 1.02, x: 4 }}
-                  transition={springConfig}
+                  transition={snappySpring}
                 >
                   <div className={styles.credentialIcon}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

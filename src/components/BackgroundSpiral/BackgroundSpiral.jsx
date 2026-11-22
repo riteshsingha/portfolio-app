@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useScroll, useSpring } from 'framer-motion';
+import { useScroll } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './BackgroundSpiral.module.css';
@@ -18,30 +18,46 @@ export function BackgroundSpiral() {
   const groupRef = useRef(null);
 
   const { scrollY } = useScroll();
-  const smoothScroll = useSpring(scrollY, {
-    damping: 28,
-    stiffness: 90,
-    mass: 0.3
-  });
 
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    const updateTransform = (currentY) => {
-      if (groupRef.current) {
-        // 0.08 degrees per pixel scrolled
-        // Scroll down -> positive degrees -> clockwise rotation
-        // Scroll up -> decreasing degrees -> anti-clockwise rotation
-        const angle = currentY * 0.08;
-        groupRef.current.setAttribute('transform', `translate(1460, 540) rotate(${angle})`);
+    let rafId = null;
+    let targetAngle = 0;
+    let currentAngle = 0;
+    let isRunning = false;
+
+    // High performance GPU-only rotation that sleeps when idle
+    const tick = () => {
+      const diff = targetAngle - currentAngle;
+      if (Math.abs(diff) > 0.02) {
+        currentAngle += diff * 0.15;
+        if (groupRef.current) {
+          groupRef.current.style.transform = `translate(1460px, 540px) rotate(${currentAngle}deg)`;
+        }
+        rafId = requestAnimationFrame(tick);
+      } else {
+        currentAngle = targetAngle;
+        if (groupRef.current) {
+          groupRef.current.style.transform = `translate(1460px, 540px) rotate(${currentAngle}deg)`;
+        }
+        isRunning = false;
       }
     };
 
-    updateTransform(smoothScroll.get());
-    const unsubscribe = smoothScroll.on('change', updateTransform);
+    const unsubscribe = scrollY.on('change', (latestY) => {
+      targetAngle = latestY * 0.07;
+      if (!isRunning) {
+        isRunning = true;
+        rafId = requestAnimationFrame(tick);
+      }
+    });
 
-    return () => unsubscribe();
-  }, [smoothScroll, prefersReducedMotion]);
+    return () => {
+      unsubscribe();
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [scrollY, prefersReducedMotion]);
 
   const isDark = theme === 'dark';
 
@@ -161,7 +177,8 @@ export function BackgroundSpiral() {
 
         <g
           ref={groupRef}
-          transform="translate(1460, 540)"
+          className={styles.spiralGroup}
+          style={{ transform: 'translate(1460px, 540px)' }}
           mask={isDark ? 'url(#fadeMaskDark)' : 'url(#fadeMaskLight)'}
           opacity={isDark ? 1 : 0.72}
         >

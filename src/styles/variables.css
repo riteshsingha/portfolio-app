@@ -21,7 +21,7 @@
   /* Glassmorphism Effect - Reference Matching */
   --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.10) 100%);
   --glass-border: rgba(255, 255, 255, 0.55);
-  --glass-blur: 20px;
+  --glass-blur: 16px;
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06), inset 0 1px 1px 0 rgba(255, 255, 255, 0.75);
   
   /* Spacing */
@@ -87,8 +87,20 @@
   
   --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
   --glass-border: rgba(255, 255, 255, 0.16);
-  --glass-blur: 20px;
+  --glass-blur: 16px;
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.40), inset 0 1px 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+/* Mobile Glass Optimization for smooth 60fps/120fps motion */
+@media (max-width: 768px) {
+  :root {
+    --glass-blur: 10px;
+    --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.18) 100%);
+  }
+  [data-theme="dark"] {
+    --glass-blur: 10px;
+    --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.04) 100%);
+  }
 }
 
 /* Reduced Motion */

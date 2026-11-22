@@ -68,7 +68,8 @@
   cursor: pointer;
   text-decoration: none;
   box-shadow: var(--glass-shadow);
-  transition: all var(--transition-base);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
 }
 
 .badge:hover {
@@ -143,7 +144,8 @@
   border-radius: var(--radius-full);
   font-size: var(--text-base);
   font-weight: 500;
-  transition: all var(--transition-fast);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  transform: translateZ(0);
 }
 
 .primaryBtn {
@@ -193,7 +195,8 @@
   align-items: center;
   justify-content: center;
   color: var(--color-text-secondary);
-  transition: all var(--transition-base);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  transform: translateZ(0);
   box-shadow: var(--glass-shadow);
 }
 

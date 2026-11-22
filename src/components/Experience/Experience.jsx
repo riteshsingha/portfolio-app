@@ -6,16 +6,16 @@ import styles from './Experience.module.css';
 export function Experience() {
   const prefersReducedMotion = useReducedMotion();
 
-  const springConfig = prefersReducedMotion
+  const easeConfig = prefersReducedMotion
     ? { duration: 0 }
-    : { type: 'spring', damping: 25, stiffness: 120 };
+    : { duration: 0.45, ease: [0.16, 1, 0.3, 1] };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: springConfig
+      transition: easeConfig
     }
   };
 
@@ -24,7 +24,7 @@ export function Experience() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.15
+        staggerChildren: prefersReducedMotion ? 0 : 0.08
       }
     }
   };
@@ -36,7 +36,7 @@ export function Experience() {
           className={styles.header}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={fadeInUp}
         >
           <span className={styles.sectionLabel}>Experience</span>
@@ -47,7 +47,7 @@ export function Experience() {
           className={styles.timeline}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
           {experience.map((item) => (

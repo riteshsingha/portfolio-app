@@ -6,27 +6,31 @@ import styles from './Hero.module.css';
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
   
-  const springConfig = prefersReducedMotion 
+  const easeConfig = prefersReducedMotion 
     ? { duration: 0 } 
-    : { type: 'spring', damping: 25, stiffness: 120 };
+    : { duration: 0.5, ease: [0.16, 1, 0.3, 1] };
+
+  const snappySpring = prefersReducedMotion 
+    ? { duration: 0 } 
+    : { type: 'spring', damping: 25, stiffness: 350, mass: 0.5 };
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.1,
-        delayChildren: 0.1
+        staggerChildren: prefersReducedMotion ? 0 : 0.06,
+        delayChildren: 0.05
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: springConfig
+      transition: easeConfig
     }
   };
 
@@ -45,12 +49,15 @@ export function Hero() {
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            transition={springConfig}
+            transition={snappySpring}
           >
             <img 
-              src={personalInfo.profileImage || `${import.meta.env.BASE_URL}images/dispaly_picture.png`} 
+              src={personalInfo.profileImage || `${import.meta.env.BASE_URL}images/profile.png`} 
               alt={personalInfo.name}
               className={styles.photo}
+              width="200"
+              height="200"
+              loading="eager"
             />
           </motion.div>
 
@@ -62,7 +69,7 @@ export function Hero() {
             variants={itemVariants}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.98 }}
-            transition={springConfig}
+            transition={snappySpring}
             title="Verify Adobe Certified Expert Credential"
           >
             <span className={styles.badgeDot} />
@@ -101,7 +108,7 @@ export function Hero() {
               className={styles.primaryBtn}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               Get in Touch
               <motion.svg 
@@ -123,7 +130,7 @@ export function Hero() {
               className={styles.secondaryBtn}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               Download Resume
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -142,7 +149,7 @@ export function Hero() {
                 className={styles.socialLink}
                 whileHover={{ y: -3, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                transition={springConfig}
+                transition={snappySpring}
                 aria-label="GitHub"
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -159,7 +166,7 @@ export function Hero() {
                 className={styles.socialLink}
                 whileHover={{ y: -3, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                transition={springConfig}
+                transition={snappySpring}
                 aria-label="LinkedIn"
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">

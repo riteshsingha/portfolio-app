@@ -15,16 +15,20 @@ export function Contact() {
   const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
   const [statusMessage, setStatusMessage] = useState('');
 
-  const springConfig = prefersReducedMotion
+  const easeConfig = prefersReducedMotion
     ? { duration: 0 }
-    : { type: 'spring', damping: 25, stiffness: 120 };
+    : { duration: 0.45, ease: [0.16, 1, 0.3, 1] };
+
+  const snappySpring = prefersReducedMotion
+    ? { duration: 0 }
+    : { type: 'spring', damping: 25, stiffness: 350, mass: 0.5 };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: springConfig
+      transition: easeConfig
     }
   };
 
@@ -107,7 +111,7 @@ export function Contact() {
           className={styles.header}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={fadeInUp}
         >
           <span className={styles.sectionLabel}>Contact</span>
@@ -121,7 +125,7 @@ export function Contact() {
           className={styles.content}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
           {/* Contact Info */}
@@ -132,7 +136,7 @@ export function Contact() {
               variants={fadeInUp}
               whileHover={{ scale: 1.02, x: 4 }}
               whileTap={{ scale: 0.98 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               <div className={styles.infoIcon}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -152,7 +156,7 @@ export function Contact() {
               variants={fadeInUp}
               whileHover={{ scale: 1.02, x: 4 }}
               whileTap={{ scale: 0.98 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               <div className={styles.infoIcon}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -169,7 +173,7 @@ export function Contact() {
               className={styles.infoCard}
               variants={fadeInUp}
               whileHover={{ scale: 1.02, x: 4 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               <div className={styles.infoIcon}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -195,7 +199,7 @@ export function Contact() {
                     className={styles.socialLink}
                     whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    transition={springConfig}
+                    transition={snappySpring}
                     aria-label="GitHub"
                   >
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -212,7 +216,7 @@ export function Contact() {
                     className={styles.socialLink}
                     whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.95 }}
-                    transition={springConfig}
+                    transition={snappySpring}
                     aria-label="LinkedIn"
                   >
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -233,7 +237,7 @@ export function Contact() {
             <motion.div 
               className={`${styles.formGroup} ${focused === 'name' ? styles.focused : ''}`}
               animate={{ scale: focused === 'name' ? 1.01 : 1 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               <label htmlFor="name">Name</label>
               <input
@@ -253,7 +257,7 @@ export function Contact() {
             <motion.div 
               className={`${styles.formGroup} ${focused === 'email' ? styles.focused : ''}`}
               animate={{ scale: focused === 'email' ? 1.01 : 1 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               <label htmlFor="email">Email</label>
               <input
@@ -273,7 +277,7 @@ export function Contact() {
             <motion.div 
               className={`${styles.formGroup} ${focused === 'message' ? styles.focused : ''}`}
               animate={{ scale: focused === 'message' ? 1.01 : 1 }}
-              transition={springConfig}
+              transition={snappySpring}
             >
               <label htmlFor="message">Message</label>
               <textarea
@@ -294,7 +298,7 @@ export function Contact() {
                 className={`${styles.alert} ${status === 'success' ? styles.alertSuccess : styles.alertError}`}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={springConfig}
+                transition={snappySpring}
                 role="alert"
               >
                 {status === 'success' ? (
@@ -319,7 +323,7 @@ export function Contact() {
               disabled={status === 'sending'}
               whileHover={status !== 'sending' ? { scale: 1.03, y: -2 } : {}}
               whileTap={status !== 'sending' ? { scale: 0.97 } : {}}
-              transition={springConfig}
+              transition={snappySpring}
             >
               {status === 'sending' ? (
                 <>

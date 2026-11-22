@@ -60,7 +60,8 @@
   border: 1px solid var(--glass-border);
   cursor: pointer;
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
   box-shadow: var(--glass-shadow);
 }
 
@@ -140,7 +141,8 @@
   align-items: center;
   justify-content: center;
   color: var(--color-text-secondary);
-  transition: all var(--transition-fast);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
   box-shadow: var(--glass-shadow);
 }
 
@@ -163,7 +165,8 @@
   border-radius: var(--radius-xl);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
-  transition: all var(--transition-base);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transform: translateZ(0);
 }
 
 .contactForm:hover {
@@ -191,16 +194,19 @@
 .formGroup textarea {
   width: 100%;
   padding: var(--space-md);
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  background: rgba(255, 255, 255, 0.45);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   font-family: inherit;
   font-size: var(--text-base);
   color: var(--color-text-primary);
-  box-shadow: var(--glass-shadow);
-  transition: all var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+[data-theme="dark"] .formGroup input,
+[data-theme="dark"] .formGroup textarea {
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .formGroup input:hover,
@@ -238,7 +244,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  transition: all var(--transition-fast);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
   box-shadow: 0 2px 8px rgba(153, 31, 82, 0.25);
 }
 

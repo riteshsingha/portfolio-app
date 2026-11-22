@@ -6,16 +6,20 @@ import styles from './Skills.module.css';
 export function Skills() {
   const prefersReducedMotion = useReducedMotion();
 
-  const springConfig = prefersReducedMotion
+  const easeConfig = prefersReducedMotion
     ? { duration: 0 }
-    : { type: 'spring', damping: 25, stiffness: 120 };
+    : { duration: 0.45, ease: [0.16, 1, 0.3, 1] };
+
+  const snappySpring = prefersReducedMotion
+    ? { duration: 0 }
+    : { type: 'spring', damping: 25, stiffness: 350, mass: 0.5 };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: springConfig
+      transition: easeConfig
     }
   };
 
@@ -24,17 +28,17 @@ export function Skills() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.02
+        staggerChildren: prefersReducedMotion ? 0 : 0.015
       }
     }
   };
 
   const tagVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: springConfig
+      transition: easeConfig
     }
   };
 
@@ -56,7 +60,7 @@ export function Skills() {
           className={styles.header}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={fadeInUp}
         >
           <span className={styles.sectionLabel}>Skills</span>
@@ -68,7 +72,7 @@ export function Skills() {
             className={styles.skillSection}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
           >
             <motion.h3 className={styles.skillGroupTitle} variants={fadeInUp}>
@@ -83,7 +87,7 @@ export function Skills() {
                   variants={tagVariants}
                   whileHover={{ scale: 1.08, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  transition={springConfig}
+                  transition={snappySpring}
                 >
                   {skill}
                 </motion.span>
@@ -97,7 +101,7 @@ export function Skills() {
             className={styles.skillSection}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
           >
             <motion.h3 className={styles.skillGroupTitle} variants={fadeInUp}>
@@ -112,7 +116,7 @@ export function Skills() {
                   variants={tagVariants}
                   whileHover={{ scale: 1.08, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  transition={springConfig}
+                  transition={snappySpring}
                 >
                   {skill}
                 </motion.span>
@@ -126,7 +130,7 @@ export function Skills() {
             className={styles.skillSection}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={staggerContainer}
           >
             <motion.h3 className={styles.skillGroupTitle} variants={fadeInUp}>
@@ -141,7 +145,7 @@ export function Skills() {
                   variants={tagVariants}
                   whileHover={{ scale: 1.08, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  transition={springConfig}
+                  transition={snappySpring}
                 >
                   {tool}
                 </motion.span>
