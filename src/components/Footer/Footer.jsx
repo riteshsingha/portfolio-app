@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { personalInfo } from '../../data/portfolio';
 import styles from './Footer.module.css';
 
 export function Footer() {
@@ -20,7 +21,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <p className={styles.copyright}>
-          Designed & Built by Ritesh Singha - © 2026
+          Designed & Built by {personalInfo.name} - © {new Date().getFullYear()}
         </p>
         
         <motion.button

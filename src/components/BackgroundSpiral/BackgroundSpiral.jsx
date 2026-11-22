@@ -74,21 +74,21 @@ export function BackgroundSpiral() {
           </radialGradient>
 
           <radialGradient id="ambientGlow1Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#94a3b8" stopOpacity="0.32" />
-            <stop offset="50%" stopColor="#cbd5e1" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#F2F4F8" stopOpacity="0" />
+            <stop offset="0%" stopColor="#c7d2fe" stopOpacity="0.60" />
+            <stop offset="70%" stopColor="#e0e7ff" stopOpacity="0.20" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
           </radialGradient>
 
           <radialGradient id="ambientGlow2Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#64748b" stopOpacity="0.24" />
-            <stop offset="55%" stopColor="#94a3b8" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#F2F4F8" stopOpacity="0" />
+            <stop offset="0%" stopColor="#e9d5ff" stopOpacity="0.55" />
+            <stop offset="70%" stopColor="#f3e8ff" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
           </radialGradient>
 
           <radialGradient id="ambientGlow3Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#a5b4fc" stopOpacity="0.30" />
-            <stop offset="60%" stopColor="#c7d2fe" stopOpacity="0.14" />
-            <stop offset="100%" stopColor="#F2F4F8" stopOpacity="0" />
+            <stop offset="0%" stopColor="#fbcfe8" stopOpacity="0.50" />
+            <stop offset="70%" stopColor="#fce7f3" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
           </radialGradient>
 
           {/* Dark Mode Gradients */}
@@ -150,7 +150,7 @@ export function BackgroundSpiral() {
           />
         </defs>
 
-        <rect width="1920" height="1080" fill={isDark ? '#000000' : '#F2F4F8'} />
+        <rect width="1920" height="1080" fill={isDark ? '#000000' : '#FAFAFC'} />
 
         {/* Ambient color mesh to give glassmorphism cards rich depth & refraction */}
         <g opacity={isDark ? 0.95 : 0.8} pointerEvents="none">
