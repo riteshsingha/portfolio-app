@@ -74,21 +74,21 @@ export function BackgroundSpiral() {
           </radialGradient>
 
           <radialGradient id="ambientGlow1Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#818cf8" stopOpacity="0.45" />
-            <stop offset="60%" stopColor="#93c5fd" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#F0F2F7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#c7d2fe" stopOpacity="0.60" />
+            <stop offset="70%" stopColor="#e0e7ff" stopOpacity="0.20" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
           </radialGradient>
 
           <radialGradient id="ambientGlow2Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#c084fc" stopOpacity="0.42" />
-            <stop offset="65%" stopColor="#d8b4fe" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#F0F2F7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#e9d5ff" stopOpacity="0.55" />
+            <stop offset="70%" stopColor="#f3e8ff" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
           </radialGradient>
 
           <radialGradient id="ambientGlow3Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#f472b6" stopOpacity="0.38" />
-            <stop offset="70%" stopColor="#fda4af" stopOpacity="0.16" />
-            <stop offset="100%" stopColor="#F0F2F7" stopOpacity="0" />
+            <stop offset="0%" stopColor="#fbcfe8" stopOpacity="0.50" />
+            <stop offset="70%" stopColor="#fce7f3" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
           </radialGradient>
 
           {/* Dark Mode Gradients */}
@@ -150,10 +150,10 @@ export function BackgroundSpiral() {
           />
         </defs>
 
-        <rect width="1920" height="1080" fill={isDark ? '#000000' : '#F0F2F7'} />
+        <rect width="1920" height="1080" fill={isDark ? '#000000' : '#FAFAFC'} />
 
         {/* Ambient color mesh to give glassmorphism cards rich depth & refraction */}
-        <g opacity={isDark ? 0.95 : 1} pointerEvents="none">
+        <g opacity={isDark ? 0.95 : 0.8} pointerEvents="none">
           <circle cx="320" cy="320" r="540" fill={isDark ? 'url(#ambientGlow1Dark)' : 'url(#ambientGlow1Light)'} />
           <circle cx="880" cy="740" r="580" fill={isDark ? 'url(#ambientGlow2Dark)' : 'url(#ambientGlow2Light)'} />
           <circle cx="460" cy="980" r="500" fill={isDark ? 'url(#ambientGlow3Dark)' : 'url(#ambientGlow3Light)'} />
@@ -163,7 +163,7 @@ export function BackgroundSpiral() {
           ref={groupRef}
           transform="translate(1460, 540)"
           mask={isDark ? 'url(#fadeMaskDark)' : 'url(#fadeMaskLight)'}
-          opacity={isDark ? 1 : 0.88}
+          opacity={isDark ? 1 : 0.72}
         >
           {HEX_SCALES.map((scale, i) => (
             <use
