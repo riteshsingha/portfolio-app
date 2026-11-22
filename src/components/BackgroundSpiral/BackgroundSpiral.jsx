@@ -54,6 +54,43 @@ export function BackgroundSpiral() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
+          {/* Ambient Background Glows for Glassmorphic Refraction */}
+          <radialGradient id="ambientGlow1Dark" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#1e3a8a" stopOpacity="0.38" />
+            <stop offset="60%" stopColor="#1e3a8a" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+          </radialGradient>
+
+          <radialGradient id="ambientGlow2Dark" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#581c87" stopOpacity="0.34" />
+            <stop offset="65%" stopColor="#3b0764" stopOpacity="0.10" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+          </radialGradient>
+
+          <radialGradient id="ambientGlow3Dark" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#831843" stopOpacity="0.28" />
+            <stop offset="70%" stopColor="#500724" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+          </radialGradient>
+
+          <radialGradient id="ambientGlow1Light" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#c7d2fe" stopOpacity="0.60" />
+            <stop offset="70%" stopColor="#e0e7ff" stopOpacity="0.20" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
+          </radialGradient>
+
+          <radialGradient id="ambientGlow2Light" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#e9d5ff" stopOpacity="0.55" />
+            <stop offset="70%" stopColor="#f3e8ff" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
+          </radialGradient>
+
+          <radialGradient id="ambientGlow3Light" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#fbcfe8" stopOpacity="0.50" />
+            <stop offset="70%" stopColor="#fce7f3" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
+          </radialGradient>
+
           {/* Dark Mode Gradients */}
           <linearGradient id="vortexGradDark" x1="-680" y1="580" x2="680" y2="-580" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#2B3E8C" />
@@ -114,6 +151,13 @@ export function BackgroundSpiral() {
         </defs>
 
         <rect width="1920" height="1080" fill={isDark ? '#000000' : '#FAFAFC'} />
+
+        {/* Ambient color mesh to give glassmorphism cards rich depth & refraction */}
+        <g opacity={isDark ? 0.95 : 0.8} pointerEvents="none">
+          <circle cx="320" cy="320" r="540" fill={isDark ? 'url(#ambientGlow1Dark)' : 'url(#ambientGlow1Light)'} />
+          <circle cx="880" cy="740" r="580" fill={isDark ? 'url(#ambientGlow2Dark)' : 'url(#ambientGlow2Light)'} />
+          <circle cx="460" cy="980" r="500" fill={isDark ? 'url(#ambientGlow3Dark)' : 'url(#ambientGlow3Light)'} />
+        </g>
 
         <g
           ref={groupRef}

@@ -38,19 +38,19 @@
 .timelineItem {
   padding: var(--space-xl);
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border-radius: var(--radius-xl);
   border: 1px solid var(--glass-border);
   cursor: default;
   transition: all var(--transition-base);
-  box-shadow: 0 4px 20px var(--color-shadow);
+  box-shadow: var(--glass-shadow);
 }
 
 .timelineItem:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 12px 40px var(--color-shadow-hover);
-  transform: translateY(-6px);
+  box-shadow: 0 16px 48px var(--color-shadow-hover), var(--glass-shadow);
+  transform: translateY(-4px);
 }
 
 .timelineHeader {
@@ -87,10 +87,11 @@
   white-space: nowrap;
   padding: var(--space-xs) var(--space-sm);
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
+  box-shadow: var(--glass-shadow);
   transition: all var(--transition-base);
 }
 
@@ -174,14 +175,15 @@
 .tech {
   padding: var(--space-xs) var(--space-md);
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
   font-size: var(--text-xs);
   font-weight: 500;
   color: var(--color-text-secondary);
   cursor: default;
+  box-shadow: var(--glass-shadow);
   transition: all var(--transition-base);
 }
 
