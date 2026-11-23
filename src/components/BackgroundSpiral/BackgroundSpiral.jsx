@@ -22,12 +22,24 @@ export function BackgroundSpiral() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Dark Mode Gradient */}
+          {/* Dark Mode Gradient & Outer Helix Fade Mask */}
           <linearGradient id="vortexGradDark" x1="-680" y1="580" x2="680" y2="-580" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#2B3E8C" />
             <stop offset="48%" stopColor="#562E7A" />
             <stop offset="100%" stopColor="#A82055" />
           </linearGradient>
+
+          <radialGradient id="fadeGradDark" cx="0" cy="0" r="680" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="42%" stopColor="#FFFFFF" />
+            <stop offset="72%" stopColor="#666666" />
+            <stop offset="92%" stopColor="#141414" />
+            <stop offset="100%" stopColor="#000000" />
+          </radialGradient>
+
+          <mask id="fadeMaskDark" maskUnits="userSpaceOnUse" x="-750" y="-750" width="1500" height="1500">
+            <circle cx="0" cy="0" r="680" fill="url(#fadeGradDark)" />
+          </mask>
 
           <polygon
             id="hexDark"
@@ -40,12 +52,24 @@ export function BackgroundSpiral() {
             vectorEffect="non-scaling-stroke"
           />
 
-          {/* Light Mode Gradient */}
+          {/* Light Mode Gradient & Outer Helix Fade Mask */}
           <linearGradient id="vortexGradLight" x1="0%" y1="100%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#223478" />
             <stop offset="50%" stopColor="#532B73" />
             <stop offset="100%" stopColor="#991F52" />
           </linearGradient>
+
+          <radialGradient id="fadeGradLight" cx="0" cy="0" r="680" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#FFFFFF" />
+            <stop offset="48%" stopColor="#FFFFFF" />
+            <stop offset="78%" stopColor="#666666" />
+            <stop offset="94%" stopColor="#141414" />
+            <stop offset="100%" stopColor="#000000" />
+          </radialGradient>
+
+          <mask id="fadeMaskLight" maskUnits="userSpaceOnUse" x="-750" y="-750" width="1500" height="1500">
+            <circle cx="0" cy="0" r="680" fill="url(#fadeGradLight)" />
+          </mask>
 
           <polygon
             id="hexLight"
@@ -60,10 +84,13 @@ export function BackgroundSpiral() {
 
         <rect width="1920" height="1080" fill={isDark ? '#000000' : '#FAFAFC'} />
 
-        <g transform="translate(1460, 540)">
+        <g 
+          transform="translate(1460, 540)"
+          mask={isDark ? 'url(#fadeMaskDark)' : 'url(#fadeMaskLight)'}
+        >
           <g
             className={styles.spiralGroup}
-            opacity={isDark ? 0.9 : 0.72}
+            opacity={isDark ? 1 : 0.78}
           >
             {HEX_SCALES.map((scale, i) => (
               <use
