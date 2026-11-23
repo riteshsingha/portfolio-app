@@ -83,15 +83,9 @@ export function Experience() {
                   <h4 className={styles.projectName}>{project.name}</h4>
                   <ul className={styles.achievements}>
                     {project.achievements.map((achievement, index) => (
-                      <motion.li 
-                        key={index}
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ ...easeConfig, delay: index * 0.03 }}
-                      >
+                      <li key={index}>
                         {achievement}
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
                 </div>

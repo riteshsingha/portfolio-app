@@ -21,13 +21,30 @@
 }
 
 .spiralGroup {
+  transform-origin: 0 0;
+  animation: ambientSpin 140s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+@keyframes ambientSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {
   .spiralGroup {
-    opacity: 0.6;
+    opacity: 0.5;
+    animation: ambientSpin 180s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spiralGroup {
+    animation: none;
   }
 }

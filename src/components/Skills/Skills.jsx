@@ -85,9 +85,6 @@ export function Skills() {
                   key={skill}
                   className={styles.skillTag}
                   variants={tagVariants}
-                  whileHover={{ scale: 1.08, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={snappySpring}
                 >
                   {skill}
                 </motion.span>
@@ -114,9 +111,6 @@ export function Skills() {
                   key={skill}
                   className={styles.skillTag}
                   variants={tagVariants}
-                  whileHover={{ scale: 1.08, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={snappySpring}
                 >
                   {skill}
                 </motion.span>
@@ -143,9 +137,6 @@ export function Skills() {
                   key={tool}
                   className={styles.skillTag}
                   variants={tagVariants}
-                  whileHover={{ scale: 1.08, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={snappySpring}
                 >
                   {tool}
                 </motion.span>
