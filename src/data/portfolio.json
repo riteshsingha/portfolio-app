@@ -3,9 +3,9 @@
     "name": "Ritesh Singha",
     "title": "AEM Developer",
     "certificationHighlight": "Adobe Certified Expert – AEM Sites Developer (2025)",
-    "certificationUrl": "https://certification.adobe.com/credential/verify/476166f2-0750-11f0-9883-42010a40002a",
+    "certificationUrl": "https://certification.adobe.com/credential/verify/edb5ed99-67de-11f0-9b2a-42010a400fc3",
     "experience": "4+ Years of Experience",
-    "tagline": "Adobe Certified Expert AEM Developer building enterprise CMS solutions on AEM 6.5 and AEM as a Cloud Service",
+    "tagline": "AEM Developer specializing in enterprise CMS architecture, component development, headless content delivery, and AEM 6.5 and AEM as a Cloud Service implementations",
     "email": "hriteshsingha@gmail.com",
     "phone": "+91-8794680692",
     "location": "Bengaluru, India",
@@ -19,12 +19,12 @@
     }
   },
   "aboutContent": {
-    "summary": "Adobe Certified Expert AEM Developer with 4+ years of experience building enterprise CMS solutions on AEM 6.5 and AEM as a Cloud Service (AEMaaCS). Recently contributed in content architecture for Citi's migration from TeamSite-Angular to a headless AEM stack, covering Content Fragment Models, GraphQL persisted queries and Universal Editor authoring and building a Full fledged AEM Console tool streamlining effortless content migration across environmnets, publishing and multi-layer cache invalidation. Strong foundation in Java, OSGi, Apache Sling, Sling Models and JCR/Oak from delivering the FedEx Rewards loyalty platform across US, EU and APAC. Experienced in AI-assisted development with Cursor, owning design and review of the output.",
+    "summary": "Adobe Certified Expert AEM Developer with 4+ years of experience implementing enterprise CMS solutions using AEM 6.5 and AEM as a Cloud Service. Experienced in AEM component development, content architecture, headless CMS implementation, Content Fragment modeling, GraphQL persisted queries, and frontend integration. Designed the content architecture for the migration of a TeamSite-Angular application to a headless AEM architecture, including Content Fragment Models, field definitions, content relationships, GraphQL query implementation, and Universal Editor integration. Developed an AEM-hosted administrative utility for cross-environment content migration, publishing operations, and cache invalidation. Technical experience includes Java, HTL, Apache Sling, Sling Models, OSGi, JCR/Oak, Oak/Lucene indexing, production deployment workflows, security remediation, and AI-assisted development.",
     "highlights": [
-      "Adobe Certified Expert - AEM Sites Developer (2025)",
-      "4+ years building enterprise CMS solutions",
-      "Headless AEM architecture experience",
-      "Zero rollback releases across US, EU & APAC platforms"
+      "Adobe Certified Expert – AEM Sites Developer (2025)",
+      "4+ years of enterprise AEM development experience",
+      "Headless AEM architecture and GraphQL implementation",
+      "Production release management across US, EU, and APAC platforms with zero rollback incidents"
     ]
   },
   "experience": [
@@ -34,28 +34,37 @@
       "role": "Developer 2",
       "period": "Apr 2024 – Present",
       "location": "Bengaluru, India",
-      "description": "Leading headless content architecture and enterprise AEM development for global clients.",
+      "description": "Enterprise AEM development involving headless CMS architecture, content modeling, GraphQL implementation, frontend integration, and migration tooling.",
       "projects": [
         {
           "name": "Citi ThankYou Rewards: AEMaaCS Headless Migration",
           "achievements": [
-            "Designed the headless content architecture for the migration from TeamSite-Angular to AEMaaCS: analyzed existing pages and components to define Content Fragment Models, fields and relationships, then presented the design to stakeholders and built it after sign-off",
-            "Built Content Fragments and GraphQL persisted queries with AI-assisted development (Cursor), handed them to front-end developers for integration, then implemented Universal Editor for in-context authoring",
-            "Owned and enhanced an AEM-hosted admin console tool that helps user to effortlessly migrate content across environments, publishing and multi-layer cache invalidation between Dev and QA within a single AEM instance"
+            "Designed the headless content architecture for migration from TeamSite-Angular to AEM as a Cloud Service by analyzing existing pages and components and defining Content Fragment Models, field structures, and content relationships.",
+            "Implemented Content Fragment Models and Content Fragments based on the approved content architecture and developed GraphQL persisted queries for structured content retrieval and frontend integration.",
+            "Integrated Universal Editor with the Next.js frontend to enable in-context content authoring and used Cursor AI for implementation assistance, code generation, and development workflows.",
+            "Developed and enhanced an AEM-hosted administrative utility for cross-environment content migration, publishing operations, and cache invalidation between Dev and QA environments within a single AEM instance."
           ]
         },
         {
           "name": "FedEx Rewards",
           "achievements": [
-            "Led the EU-AMEA website redesign, delivering 10+ reusable components across 15+ regional sites",
-            "Built a secure OAuth 2.0 payment integration with environment-specific OSGi configurations from Dev to Production",
-            "Resolved a critical production data exposure vulnerability end-to-end",
-            "Delivered 24+ biweekly releases across EU and APAC with zero rollbacks",
-            "Optimized Oak/Lucene indexes to improve JCR query performance"
+            "Led the EU-AMEA website redesign and implemented 10+ reusable AEM components across 15+ regional websites.",
+            "Implemented OAuth 2.0 payment integration with environment-specific OSGi configurations across Dev, QA, and Production environments.",
+            "Identified, analyzed, and remediated a production data exposure vulnerability.",
+            "Managed implementation and deployment across 24+ biweekly releases for EU and APAC platforms with zero rollback incidents.",
+            "Optimized Oak/Lucene indexes to improve JCR query execution performance."
           ]
         }
       ],
-      "technologies": ["AEMaaCS", "GraphQL", "Content Fragments", "Universal Editor", "Cursor AI"]
+      "technologies": [
+        "AEM as a Cloud Service",
+        "GraphQL",
+        "Content Fragments",
+        "Content Fragment Models",
+        "Universal Editor",
+        "Next.js",
+        "Cursor AI"
+      ]
     },
     {
       "id": 2,
@@ -63,18 +72,25 @@
       "role": "AEM Developer 1",
       "period": "Jun 2022 – Apr 2024",
       "location": "Bengaluru, India",
-      "description": "Core AEM developer on the FedEx Rewards Loyalty platform.",
+      "description": "AEM component development and backend implementation for the FedEx Rewards loyalty platform.",
       "projects": [
         {
           "name": "FedEx Rewards",
           "achievements": [
-            "Developed 20+ production components for the Loyalty Rewards platform using HTL, Java, Sling Models, and OSGi services",
-            "Supported planning and execution of 3 major bug-free production releases",
-            "Built a site-wide header/footer solution using locale-based Sling Models, standardizing rendering across regional sites"
+            "Developed 20+ production AEM components using HTL, Java, Sling Models, and OSGi.",
+            "Supported release planning, implementation, validation, and deployment for three major production releases.",
+            "Implemented a site-wide header and footer architecture using locale-specific Sling Models to standardize component rendering across regional websites."
           ]
         }
       ],
-      "technologies": ["AEM 6.5", "Java", "HTL", "Sling Models", "OSGi", "Maven"]
+      "technologies": [
+        "AEM 6.5",
+        "Java",
+        "HTL",
+        "Sling Models",
+        "OSGi",
+        "Maven"
+      ]
     }
   ],
   "certifications": [
@@ -82,7 +98,7 @@
       "name": "Adobe Certified Expert",
       "detail": "Adobe Experience Manager Sites Developer",
       "year": 2025,
-      "url": "https://certification.adobe.com/credential/verify/476166f2-0750-11f0-9883-42010a40002a"
+      "url": "https://certification.adobe.com/credential/verify/edb5ed99-67de-11f0-9b2a-42010a400fc3"
     },
     {
       "name": "MTA: Introduction to Programming Using Java",
@@ -94,12 +110,12 @@
     {
       "title": "Magnitude Team Impact Award",
       "year": 2024,
-      "summary": "Recognized for cross-functional impact and technical leadership."
+      "summary": "Recognition for technical contributions, cross-functional implementation, and project delivery."
     },
     {
       "title": "Epsilon DX Extra Miler Award",
       "year": 2023,
-      "summary": "Recognized for technical ownership and high-quality delivery."
+      "summary": "Recognition for technical ownership, implementation quality, and delivery execution."
     }
   ],
   "skills": {
@@ -126,7 +142,7 @@
       "AEM Workflows",
       "Editable Templates",
       "Custom Components",
-      "ClientLibs",
+      "Client Libraries",
       "Dispatcher"
     ],
     "apisAndHeadless": [
@@ -163,10 +179,25 @@
     "cgpa": "7.83"
   },
   "navLinks": [
-    { "id": "home", "label": "Home" },
-    { "id": "about", "label": "About" },
-    { "id": "experience", "label": "Experience" },
-    { "id": "skills", "label": "Skills" },
-    { "id": "contact", "label": "Contact" }
+    {
+      "id": "home",
+      "label": "Home"
+    },
+    {
+      "id": "about",
+      "label": "About"
+    },
+    {
+      "id": "experience",
+      "label": "Experience"
+    },
+    {
+      "id": "skills",
+      "label": "Skills"
+    },
+    {
+      "id": "contact",
+      "label": "Contact"
+    }
   ]
 }

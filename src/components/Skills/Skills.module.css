@@ -53,9 +53,7 @@
 
 .skillTag {
   padding: var(--space-sm) var(--space-md);
-  background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.40);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
@@ -64,8 +62,12 @@
   cursor: pointer;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
   user-select: none;
-  box-shadow: var(--glass-shadow);
-  transform: translateZ(0);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .skillTag {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.16), 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .skillTag:hover {
@@ -73,7 +75,7 @@
   border-color: var(--color-accent);
   color: #ffffff;
   box-shadow: 0 6px 20px var(--color-shadow-hover);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .skillTag:active {

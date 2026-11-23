@@ -21,19 +21,14 @@ export function Navbar() {
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
-        requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
           const currentY = window.scrollY;
-          setIsScrolled(currentY > 10);
+          setIsScrolled(currentY > 20);
           
-          const sections = navLinks.map(link => document.getElementById(link.id));
-          const scrollPosition = currentY + 120;
-          
-          for (let i = sections.length - 1; i >= 0; i--) {
-            const section = sections[i];
-            if (section && section.offsetTop <= scrollPosition) {
-              setActiveSection(navLinks[i].id);
-              break;
-            }
+          if (currentY < 80) {
+            setActiveSection('home');
+          } else if (window.innerHeight + currentY >= document.documentElement.scrollHeight - 50) {
+            setActiveSection('contact');
           }
           ticking = false;
         });
@@ -42,7 +37,35 @@ export function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // Zero-reflow section tracking using IntersectionObserver
+    const sectionElements = navLinks
+      .map((link) => document.getElementById(link.id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (window.scrollY < 80 || window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+          return;
+        }
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          visible.sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: '-20% 0px -50% 0px',
+        threshold: [0, 0.2]
+      }
+    );
+
+    sectionElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const scrollToSection = (sectionId) => {

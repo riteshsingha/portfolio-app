@@ -1,7 +1,4 @@
-import { useEffect, useRef } from 'react';
-import { useScroll } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
-import { useReducedMotion } from '../../hooks/useReducedMotion';
 import styles from './BackgroundSpiral.module.css';
 
 const HEX_SCALES = [
@@ -14,51 +11,6 @@ const HEX_SCALES = [
 
 export function BackgroundSpiral() {
   const { theme } = useTheme();
-  const prefersReducedMotion = useReducedMotion();
-  const groupRef = useRef(null);
-
-  const { scrollY } = useScroll();
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
-    let rafId = null;
-    let targetAngle = 0;
-    let currentAngle = 0;
-    let isRunning = false;
-
-    // High performance GPU-only rotation that sleeps when idle
-    const tick = () => {
-      const diff = targetAngle - currentAngle;
-      if (Math.abs(diff) > 0.02) {
-        currentAngle += diff * 0.15;
-        if (groupRef.current) {
-          groupRef.current.style.transform = `translate(1460px, 540px) rotate(${currentAngle}deg)`;
-        }
-        rafId = requestAnimationFrame(tick);
-      } else {
-        currentAngle = targetAngle;
-        if (groupRef.current) {
-          groupRef.current.style.transform = `translate(1460px, 540px) rotate(${currentAngle}deg)`;
-        }
-        isRunning = false;
-      }
-    };
-
-    const unsubscribe = scrollY.on('change', (latestY) => {
-      targetAngle = latestY * 0.07;
-      if (!isRunning) {
-        isRunning = true;
-        rafId = requestAnimationFrame(tick);
-      }
-    });
-
-    return () => {
-      unsubscribe();
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, [scrollY, prefersReducedMotion]);
-
   const isDark = theme === 'dark';
 
   return (
@@ -70,61 +22,12 @@ export function BackgroundSpiral() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Ambient Background Glows for Glassmorphic Refraction */}
-          <radialGradient id="ambientGlow1Dark" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#1e3a8a" stopOpacity="0.38" />
-            <stop offset="60%" stopColor="#1e3a8a" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-          </radialGradient>
-
-          <radialGradient id="ambientGlow2Dark" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#581c87" stopOpacity="0.34" />
-            <stop offset="65%" stopColor="#3b0764" stopOpacity="0.10" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-          </radialGradient>
-
-          <radialGradient id="ambientGlow3Dark" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#831843" stopOpacity="0.28" />
-            <stop offset="70%" stopColor="#500724" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-          </radialGradient>
-
-          <radialGradient id="ambientGlow1Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#c7d2fe" stopOpacity="0.60" />
-            <stop offset="70%" stopColor="#e0e7ff" stopOpacity="0.20" />
-            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
-          </radialGradient>
-
-          <radialGradient id="ambientGlow2Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#e9d5ff" stopOpacity="0.55" />
-            <stop offset="70%" stopColor="#f3e8ff" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
-          </radialGradient>
-
-          <radialGradient id="ambientGlow3Light" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#fbcfe8" stopOpacity="0.50" />
-            <stop offset="70%" stopColor="#fce7f3" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#FAFAFC" stopOpacity="0" />
-          </radialGradient>
-
-          {/* Dark Mode Gradients */}
+          {/* Dark Mode Gradient */}
           <linearGradient id="vortexGradDark" x1="-680" y1="580" x2="680" y2="-580" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stopColor="#2B3E8C" />
             <stop offset="48%" stopColor="#562E7A" />
             <stop offset="100%" stopColor="#A82055" />
           </linearGradient>
-
-          <radialGradient id="fadeGradDark" cx="0" cy="0" r="680" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="42%" stopColor="#FFFFFF" />
-            <stop offset="72%" stopColor="#666666" />
-            <stop offset="92%" stopColor="#141414" />
-            <stop offset="100%" stopColor="#000000" />
-          </radialGradient>
-
-          <mask id="fadeMaskDark" maskUnits="userSpaceOnUse" x="-700" y="-700" width="1400" height="1400">
-            <circle cx="0" cy="0" r="680" fill="url(#fadeGradDark)" />
-          </mask>
 
           <polygon
             id="hexDark"
@@ -137,23 +40,12 @@ export function BackgroundSpiral() {
             vectorEffect="non-scaling-stroke"
           />
 
-          {/* Light Mode Gradients */}
+          {/* Light Mode Gradient */}
           <linearGradient id="vortexGradLight" x1="0%" y1="100%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#223478" />
             <stop offset="50%" stopColor="#532B73" />
             <stop offset="100%" stopColor="#991F52" />
           </linearGradient>
-
-          <radialGradient id="fadeGradLight" cx="0" cy="0" r="680" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="55%" stopColor="#FFFFFF" />
-            <stop offset="82%" stopColor="#555555" />
-            <stop offset="100%" stopColor="#000000" />
-          </radialGradient>
-
-          <mask id="fadeMaskLight" maskUnits="userSpaceOnUse" x="-700" y="-700" width="1400" height="1400">
-            <circle cx="0" cy="0" r="680" fill="url(#fadeGradLight)" />
-          </mask>
 
           <polygon
             id="hexLight"
@@ -168,27 +60,19 @@ export function BackgroundSpiral() {
 
         <rect width="1920" height="1080" fill={isDark ? '#000000' : '#FAFAFC'} />
 
-        {/* Ambient color mesh to give glassmorphism cards rich depth & refraction */}
-        <g opacity={isDark ? 0.95 : 0.8} pointerEvents="none">
-          <circle cx="320" cy="320" r="540" fill={isDark ? 'url(#ambientGlow1Dark)' : 'url(#ambientGlow1Light)'} />
-          <circle cx="880" cy="740" r="580" fill={isDark ? 'url(#ambientGlow2Dark)' : 'url(#ambientGlow2Light)'} />
-          <circle cx="460" cy="980" r="500" fill={isDark ? 'url(#ambientGlow3Dark)' : 'url(#ambientGlow3Light)'} />
-        </g>
-
-        <g
-          ref={groupRef}
-          className={styles.spiralGroup}
-          style={{ transform: 'translate(1460px, 540px)' }}
-          mask={isDark ? 'url(#fadeMaskDark)' : 'url(#fadeMaskLight)'}
-          opacity={isDark ? 1 : 0.72}
-        >
-          {HEX_SCALES.map((scale, i) => (
-            <use
-              key={i}
-              href={isDark ? '#hexDark' : '#hexLight'}
-              transform={`rotate(${i * 7}) scale(${scale})`}
-            />
-          ))}
+        <g transform="translate(1460, 540)">
+          <g
+            className={styles.spiralGroup}
+            opacity={isDark ? 0.9 : 0.72}
+          >
+            {HEX_SCALES.map((scale, i) => (
+              <use
+                key={i}
+                href={isDark ? '#hexDark' : '#hexLight'}
+                transform={`rotate(${i * 7}) scale(${scale})`}
+              />
+            ))}
+          </g>
         </g>
       </svg>
     </div>
