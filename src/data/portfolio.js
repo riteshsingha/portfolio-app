@@ -10,7 +10,8 @@ const resolveBasePath = (path) => {
 export const personalInfo = {
   ...portfolioData.personalInfo,
   resumeUrl: resolveBasePath(portfolioData.personalInfo.resumeUrl),
-  profileImage: resolveBasePath(portfolioData.personalInfo.profileImage)
+  profileImage: resolveBasePath(portfolioData.personalInfo.profileImage),
+  certificationBadge: resolveBasePath(portfolioData.personalInfo.certificationBadge)
 };
 
 export const aboutContent = portfolioData.aboutContent;

@@ -72,7 +72,13 @@ export function Hero() {
             transition={snappySpring}
             title="Verify Adobe Certified Expert Credential"
           >
-            <span className={styles.badgeDot} />
+            <img 
+              src={personalInfo.certificationBadge || `${import.meta.env.BASE_URL}images/adobe-certified-expert.png`}
+              alt="Adobe Certified Expert"
+              className={styles.badgeIcon}
+              width="20"
+              height="20"
+            />
             <span>{personalInfo.certificationHighlight}</span>
             <svg 
               className={styles.badgeArrow} 
